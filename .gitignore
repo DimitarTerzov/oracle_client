@@ -2,6 +2,7 @@
 config.py
 *.xlsx
 *.xlsx#
+*.sql
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
