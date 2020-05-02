@@ -4,16 +4,17 @@ from db_utils import params_as_list
 class App():
     def __init__(self):
         self.name = 'app'
+        self.id_column = 'APP_ID'
         self._app_id = None
         self._column_count = 57
 
     @property
-    def app_id(self):
+    def id(self):
         return self._app_id
 
-    @app_id.setter
-    def app_id(self, id):
-        self._app_id = id
+    @id.setter
+    def id(self, new_id):
+        self._app_id = new_id
 
     @property
     def nas_dir(self):
@@ -38,7 +39,7 @@ class App():
 
     def values_to_insert(self):
         values = (
-            self.app_id,'20__VeracodeMP__50860', None,
+            self.id,'20__VeracodeMP__50860', None,
             25, 'e460adbc-0626-4826-8907-9c12ab0e8d72',
             447, self.nas_dir, 1607, 1, None, None, None,
             10520, 0, 0, 2502, 1, 1, 1, None, None, None,
