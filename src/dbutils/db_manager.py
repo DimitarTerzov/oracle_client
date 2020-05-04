@@ -14,9 +14,11 @@ analysis_unit_dyn_params = AnalysisUnitDynParams()
 scan_encrypt = ScanEncrypt()
 analysis_unit_scan_window = AnalysisUnitScanWindow()
 
+
 manager = TablesManager(client, app, sandbox, app_ver, analysis,
                 analysis_unint, engine_job, analysis_unit_dyn_op,
                 analysis_unit_dyn_params, scan_encrypt, analysis_unit_scan_window)
+
 
 def main(manager, remote_job_id):
     manager.set_primary_keys()
@@ -25,4 +27,4 @@ def main(manager, remote_job_id):
 
 
 if __name__ == '__main__':
-    main(manager)
+    main(manager, remote_job_id)
