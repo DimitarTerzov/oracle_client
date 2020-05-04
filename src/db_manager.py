@@ -1,5 +1,5 @@
 from db_client import db_client as client
-from tables_magaer import TablesManager
+from tables_manager import TablesManager
 from db_tables import *
 
 
