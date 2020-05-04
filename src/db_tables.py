@@ -57,44 +57,241 @@ class Sandbox:
     def __init__(self):
         self.name = 'sandbox'
         self.id_column = 'SANDBOX_ID'
-        self.self._sandbox_id = None
+        self._sandbox_id = None
+        self._app_id = None
+
+    @property
+    def id(self):
+        return self._sandbox_id
+
+    @id.setter
+    def id(self, new_id):
+        self._sandbox_id = new_id
+
+    @property
+    def app_id(self):
+        return self._app_id
+
+    @app_id.setter
+    def app_id(self, new_id):
+        self._app_id = new_id
+
 
 
 class AppVer:
     def __init__(self):
         self.name = 'app_ver'
+        self.id_column = 'APP_VER_ID'
+        self._app_ver_id = None
+        self._sandbox_id = None
+
+    @property
+    def id(self):
+        return self._app_ver_id
+
+    @id.setter
+    def id(self, new_id):
+        self._app_ver_id = new_id
+
+    @property
+    def sandbox_id(self):
+        return self._sandbox_id
+
+    @sandbox_id.setter
+    def sandbox_id(self, new_id):
+        self._sandbox_id = new_id
 
 
 class Analysis:
     def __init__(self):
         self.name = 'analysis'
+        self.id_column = 'ANALYSIS_ID'
+        self._analysis_id = None
+        self._app_ver_id = None
+
+    @property
+    def id(self):
+        return self._analysis_id
+
+    @id.setter
+    def id(self, new_id):
+        self._analysis_id = new_id
+
+    @property
+    def app_ver_id(self):
+        return self._app_ver_id
+
+    @app_ver_id.setter
+    def app_ver_id(self, new_id):
+        self._app_ver_id = new_id
 
 
 class AnalysisUnit:
     def __init__(self):
         self.name = 'analysis_unit'
+        self.id_column = 'ANALYSIS_UNIT_ID'
+        self._analysis_unit_id = None
+        self._analysis_id = None
+
+    @property
+    def id(self):
+        return self._analysis_unit_id
+
+    @id.setter
+    def id(self, new_id):
+        self._analysis_unit_id = new_id
+
+    @property
+    def analysis_id(self):
+        return self._analysis_id
+
+    @analysis_id.setter
+    def analysis_id(self, new_id):
+        self._analysis_id = new_id
 
 
 class EngineJob:
     def __init__(self):
         self.name = 'engine_job'
+        self.id_column = 'ENGINE_JOB_ID'
+        self._engine_job_id = None
+        self._app_ver_id = None
+        self._analysis_unit_id = None
+        self._remote_job_id = None
+
+    @property
+    def remote_job_id(self):
+        return self._remote_job_id
+
+    @remote_job_id.setter
+    def remote_job_id(self, new_id):
+        self._remote_job_id = new_id
+
+    @property
+    def analysis_unit_id(self):
+        return self._analysis_unit_id
+
+    @analysis_unit_id.setter
+    def analysis_unit_id(self, new_id):
+        self._analysis_unit_id = new_id
+
+    @property
+    def app_ver_id(self):
+        return self._app_ver_id
+
+    @app_ver_id.setter
+    def app_ver_id(self, new_id):
+        self._app_ver_id = new_id
+
+    @property
+    def id(self):
+        return self._engine_job_id
+
+    @id.setter
+    def id(self, new_id):
+        self._engine_job_id = new_id
 
 
 class AnalysisUnitDynOp:
     def __init__(self):
         self.name = 'analysis_unit_dyn_op'
+        self.id_column = 'ANALYSIS_UNIT_DYN_OP_ID'
+        self._analysis_unit_dyn_op_id = None
+        self._analysis_unit_id = None
+        self._engine_job_id = None
+
+    @property
+    def engine_job_id(self):
+        return self._engine_job_id
+
+    @engine_job_id.setter
+    def engine_job_id(self, new_id):
+        self._engine_job_id = new_id
+
+    @property
+    def analysis_unit_id(self):
+        return self._analysis_unit_id
+
+    @analysis_unit_id.setter
+    def analysis_unit_id(self, new_id):
+        self._analysis_unit_id = new_id
+
+    @property
+    def id(self):
+        return self._analysis_unit_dyn_op_id
+
+    @id.setter
+    def id(self, new_id):
+        self._analysis_unit_dyn_op_id = new_id
 
 
 class AnalysisUnitDynParams:
     def __init__(self):
         self.name = 'analysis_unit_dyn_params'
+        self.id_column = 'ANALYSIS_UNIT_DYN_PARAMS_ID'
+        self._analysis_unit_dyn_params_id = None
+        self._analysis_unit_id = None
+
+    @property
+    def analysis_unit_id(self):
+        return self._analysis_unit_id
+
+    @analysis_unit_id.setter
+    def analysis_unit_id(self, new_id):
+        self._analysis_unit_id = new_id
+
+    @property
+    def id(self):
+        return self._analysis_unit_dyn_params_id
+
+    @id.setter
+    def id(self, new_id):
+        self._analysis_unit_dyn_params_id = new_id
 
 
 class ScanEncrypt:
     def __init__(self):
         self.name = 'scan_encrypt'
+        self.id_column = 'SCAN_ENCRYPT_ID'
+        self._scan_encrypt_id = None
+        self._app_ver_id = None
+
+    @property
+    def app_ver_id(self):
+        return self._app_ver_id
+
+    @app_ver_id.setter
+    def app_ver_id(self, new_id):
+        self._app_ver_id = new_id
+
+    @property
+    def id(self):
+        return self._scan_encrypt_id
+
+    @id.setter
+    def id(self, new_id):
+        self._scan_encrypt_id = new_id
 
 
 class AnalysisUnitScanWindow:
     def __init__(self):
         self.name = 'analysis_unit_scan_window'
+        self.id_column = 'ANALYSIS_UNIT_SCAN_WINDOW_ID'
+        self._analysis_unit_scan_window_id = None
+        self._analysis_unit_id = None
+
+    @property
+    def analysis_unit_id(self):
+        return self._analysis_unit_id
+
+    @analysis_unit_id.setter
+    def analysis_unit_id(self, new_id):
+        self._analysis_unit_id = new_id
+
+    @property
+    def id(self):
+        return self._analysis_unit_scan_window_id
+
+    @id.setter
+    def id(self, new_id):
+        self._analysis_unit_scan_window_id = new_id
