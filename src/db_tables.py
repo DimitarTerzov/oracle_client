@@ -1,7 +1,7 @@
 from db_utils import params_as_list
 
 
-class App():
+class App:
     def __init__(self):
         self.name = 'app'
         self.id_column = 'APP_ID'
@@ -53,46 +53,48 @@ class App():
         return values
 
 
-class Sandbox():
+class Sandbox:
     def __init__(self):
         self.name = 'sandbox'
+        self.id_column = 'SANDBOX_ID'
+        self.self._sandbox_id = None
 
 
-class AppVer():
+class AppVer:
     def __init__(self):
         self.name = 'app_ver'
 
 
-class Analysis():
+class Analysis:
     def __init__(self):
         self.name = 'analysis'
 
 
-class AnalysisUnit():
+class AnalysisUnit:
     def __init__(self):
         self.name = 'analysis_unit'
 
 
-class EngineJob():
+class EngineJob:
     def __init__(self):
         self.name = 'engine_job'
 
 
-class AnalysisUnitDynOp():
+class AnalysisUnitDynOp:
     def __init__(self):
         self.name = 'analysis_unit_dyn_op'
 
 
-class AnalysisUnitDynParams():
+class AnalysisUnitDynParams:
     def __init__(self):
         self.name = 'analysis_unit_dyn_params'
 
 
-class ScanEncrypt():
+class ScanEncrypt:
     def __init__(self):
         self.name = 'scan_encrypt'
 
 
-class AnalysisUnitScanWindow():
+class AnalysisUnitScanWindow:
     def __init__(self):
         self.name = 'analysis_unit_scan_window'
