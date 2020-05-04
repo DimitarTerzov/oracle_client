@@ -18,8 +18,9 @@ manager = TablesManager(client, app, sandbox, app_ver, analysis,
                 analysis_unint, engine_job, analysis_unit_dyn_op,
                 analysis_unit_dyn_params, scan_encrypt, analysis_unit_scan_window)
 
-def main(manager):
-    manager.set_new_ids()
+def main(manager, remote_job_id):
+    manager.set_primary_keys()
+    manager.set_foreign_keys(remote_job_id)
     manager.insert_into_tables()
 
 

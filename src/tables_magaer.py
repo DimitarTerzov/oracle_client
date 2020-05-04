@@ -14,7 +14,7 @@ class TablesManager():
         self.scan_encrypt_table = scan_encrypt
         self.analysis_unit_scan_window_table = analysis_unit_scan_window
 
-    def set_new_ids(self):
+    def set_primary_keys(self):
         tables = [self.app_table, self.sandbox_table, self.app_ver_table,
             self.analysis_table, self.analysis_unit_table, self.engine_job_table,
             self.analysis_unit_dyn_op_table, self.analysis_unit_dyn_params_table,
@@ -24,6 +24,9 @@ class TablesManager():
             max_id = self._get_max_id(table)
             new_id = max_id + 20000
             table.id = new_id
+
+    def set_foreign_keys(self, remote_job_id):
+        pass
 
     def insert_into_tables(self):
         tables = [self.app_table, self.sandbox_table, self.app_ver_table,
