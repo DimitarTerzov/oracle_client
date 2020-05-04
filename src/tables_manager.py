@@ -26,7 +26,19 @@ class TablesManager():
             table.id = new_id
 
     def set_foreign_keys(self, remote_job_id):
-        pass
+        self.sandbox.app_id = self.app.id
+        self.app_ver.sandbox_id = self.sandbox.id
+        self.analysis.app_ver_id = self.app_ver.id
+        self.analysis_unit.analysis_id = self.analysis.id
+        self.engine_job.app_ver_id = self.app_ver.id
+        self.engine_job.analysis_unit_id = self.analysis_unit.id
+        self.engine_job.remote_job_id = remote_job_id
+        self.analysis_unit_dyn_op.analysis_unit_id = self.analysis_unit.id
+        self.analysis_unit_dyn_op.engine_job_id = self.engine_job.id
+        self.analysis_unit_dyn_params.analysis_unit_id = self.analysis_unit.id
+        self.scan_encrypt.app_ver_id = self.app_ver.id
+        self.analysis_unit_scan_window.analysis_unit_id = self.analysis_unit.id
+
 
     def insert_into_tables(self):
         tables = [self.app, self.sandbox, self.app_ver,
