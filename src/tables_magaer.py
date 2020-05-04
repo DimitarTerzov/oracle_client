@@ -3,22 +3,22 @@ class TablesManager():
                  engine_job, analysis_unit_dyn_op, analysis_unit_dyn_params,
                  scan_encrypt, analysis_unit_scan_window):
         self.client = client
-        self.app_table = app
-        self.sandbox_table = sandbox
-        self.app_ver_table = app_ver
-        self.analysis_table = analysis
-        self.analysis_unit_table = analysis_unit
-        self.engine_job_table = engine_job
-        self.analysis_unit_dyn_op_table = analysis_unit_dyn_op
-        self.analysis_unit_dyn_params_table = analysis_unit_dyn_params
-        self.scan_encrypt_table = scan_encrypt
-        self.analysis_unit_scan_window_table = analysis_unit_scan_window
+        self.app = app
+        self.sandbox = sandbox
+        self.app_ver = app_ver
+        self.analysis = analysis
+        self.analysis_unit = analysis_unit
+        self.engine_job = engine_job
+        self.analysis_unit_dyn_op = analysis_unit_dyn_op
+        self.analysis_unit_dyn_params = analysis_unit_dyn_params
+        self.scan_encrypt = scan_encrypt
+        self.analysis_unit_scan_window = analysis_unit_scan_window
 
     def set_primary_keys(self):
-        tables = [self.app_table, self.sandbox_table, self.app_ver_table,
-            self.analysis_table, self.analysis_unit_table, self.engine_job_table,
-            self.analysis_unit_dyn_op_table, self.analysis_unit_dyn_params_table,
-            self.scan_encrypt_table, self.analysis_unit_scan_window_table]
+        tables = [self.app, self.sandbox, self.app_ver,
+            self.analysis, self.analysis_unit, self.engine_job,
+            self.analysis_unit_dyn_op, self.analysis_unit_dyn_params,
+            self.scan_encrypt, self.analysis_unit_scan_window]
 
         for table in tables:
             max_id = self._get_max_id(table)
@@ -29,10 +29,10 @@ class TablesManager():
         pass
 
     def insert_into_tables(self):
-        tables = [self.app_table, self.sandbox_table, self.app_ver_table,
-            self.analysis_table, self.analysis_unit_table, self.engine_job_table,
-            self.analysis_unit_dyn_op_table, self.analysis_unit_dyn_params_table,
-            self.scan_encrypt_table, self.analysis_unit_scan_window_table]
+        tables = [self.app, self.sandbox, self.app_ver,
+            self.analysis, self.analysis_unit, self.engine_job,
+            self.analysis_unit_dyn_op, self.analysis_unit_dyn_params,
+            self.scan_encrypt, self.analysis_unit_scan_window]
 
         for table in tables:
             self.client.excute(table.insert_statement(), table.values_to_insert())
