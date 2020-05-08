@@ -11,7 +11,7 @@ class DBClient():
     DB client to connect with oracle DB.
     """
     def __init__(self, username, password, dsn):
-        self.username = "спас"
+        self.username = username
         self.password = password
         self.dsn = dsn
         try:
