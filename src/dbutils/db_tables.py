@@ -48,13 +48,13 @@ class App:
         IS_DEMO,
         NEXT_DAY_SCHEDULING_ENABLED, KEEP_BINARY_DAYS, S3_ONLY, S3_BUCKET_ID,
         PRESCAN_WORKFLOW)
-        VALUES {0} returning APP_ID into :{1}""".format(
-                    params_as_list(self._column_count), self._column_count+1)
+        VALUES {0}""".format(
+                         params_as_list(self._column_count))
         return sql
 
-    def values_to_insert(self, id_):
+    def values_to_insert(self):
         values = (
-            'SEQ_APP.nextval', self.app_name, None,
+            self.id, self.app_name, None,
             25, 'e460adbc-0626-4826-8907-9c12ab0e8d72',
             447, self.nas_dir, 1607, 1, None, None, None,
             10520, 0, 0, 2502, 1, 1, 1, None, None, None,
@@ -62,7 +62,7 @@ class App:
             1, 1, None, None, 2, 0, 0, '06-APR-20 10.26.57.488000000 PM',
             0, 0, 0, None, 1, 0, 0, '06-APR-20 10.26.57.751000000 PM',
             '06-APR-20 11.06.19.068639000PM', 'internal', 2,
-            0, None, 0, 0, None, 1, 0, 0, 0, -1, 0, -1, 0, id_
+            0, None, 0, 0, None, 1, 0, 0, 0, -1, 0, -1, 0
         )
 
         return values
@@ -101,20 +101,20 @@ class Sandbox:
         DYN_UNIQ_ISSU_CHKSM_POP_STS, DYN_UNIQ_ISSU_POP_RETRY_CNT,
         DELETED_FILES,
         EXPIRED_TS, PURGE_ON_PROMOTE, AUTO_RECREATE)
-        VALUES {0} returning SANDBOX_ID into :{1}""".format(
-                params_as_list(self._column_count), self._column_count+1)
+        VALUES {0}""".format(
+                         params_as_list(self._column_count))
         return sql
 
-    def values_to_insert(self, id_):
+    def values_to_insert(self):
         values = (
-            'SEQ_SANDBOX.nextval', 'Policy Sandbox. Do not display this text.',
+            self.id, 'Policy Sandbox. Do not display this text.',
             1, self.app_id, 1, 10520,
             '06-APR-20 10.26.58.567000000PM',
             0, '42524238-3376-485e-a768-c5888b2664df',
             '06-APR-20 10.26.58.571000000 PM',
             '06-APR-20 11.06.19.075785000 PM',
             'onewas-test', 1, 0, 3, 3, None,
-            0, None, 0, 0, id_
+            0, None, 0, 0
         )
         return values
 
@@ -168,13 +168,12 @@ class AppVer:
         BINARIES_ARCHIVED, TEMPLATES_ARCHIVED, DELETED_EMPTY_EXEC_DIRS,
         BINARIES_ON_S3,
         S3_BUCKET_ID, IS_STACK_FRAME_DELETED)
-        VALUES {} returning APP_VER_ID into :{1}""".format(
-                params_as_list(self._column_count), self._column_count+1)
+        VALUES {}""".format(params_as_list(self._column_count))
         return sql
 
-    def values_to_insert(self, id_):
+    def values_to_insert(self):
         values = (
-            'SEQ_APP_VER', self.sandbox_id, None, 208, 1,
+            self.id, self.sandbox_id, None, 208, 1,
             10520, 'Mon Apr 06 22:26:58 EDT 2020', None, self.nas_dir, 807,
             None, None, 1, None, 1, 0, 0,
             '42524238-3376-485e-a768-c5888b2664df', 0, 7,
@@ -187,7 +186,7 @@ class AppVer:
             'internal', 4, 0, None, 0, 2, None,
             0, 0, None,
             '06-APR-20 10.26.58.703000000 PM',
-            0, 0, 0, 0, 1, 0, -1, 0, id_
+            0, 0, 0, 0, 1, 0, -1, 0
         )
         return values
 
@@ -221,17 +220,17 @@ class Analysis:
         insert into ANALYSIS (ANALYSIS_ID, ANALYSIS_NAME,
         APP_VER_ID, REVIEWED_TS, INSERT_TS, MODIFIED_TS,
         MODIFIED_BY, RECORD_VER)
-        VALUES {} returning ANALYSIS_ID into :{1}""".format(
-            params_as_list(self._column_count), self._column_count+1)
+        VALUES {}""".format(
+                        params_as_list(self._column_count))
         return sql
 
-    def values_to_insert(self, id_):
+    def values_to_insert(self):
         values = (
-            'SEQ_ANALYSIS', 'initial',
+            self.id, 'initial',
             self.app_ver_id, None,
             '6-APR-20 10.26.58.750000000 PM',
             '06-APR-20 10.26.58.750000000 PM',
-            'onewas-test', 1, id_
+            'onewas-test', 1
         )
         return values
 
@@ -278,13 +277,12 @@ class AnalysisUnit:
         NEEDS_FIXED_REOPENED_RECALC,
         CODEBASE_PRICING_SIZE, USED_CODEBASE_PRICING_SIZE,
         UNSUBMITTED_STATIC_NOTICE_TS)
-        VALUES {} returning ANALYSIS_UNIT_ID into :{1}""".format(
-                params_as_list(self._column_count), self._column_count+1)
+        VALUES {}""".format(params_as_list(self._column_count))
         return sql
 
-    def values_to_insert(self, id_):
+    def values_to_insert(self):
         values = (
-            'SEQ_ANALYSIS_UNIT', self.analysis_id, 4,
+            self.id, self.analysis_id, 4,
             'veracode/app157399/ver69555/analysis69576/analysisUnit169536',
             0, 711, 0, 10520, None,
             '06-APR-20 11.06.18.886000000 PM',
@@ -296,7 +294,7 @@ class AnalysisUnit:
             '06-APR-20 10.26.58.755000000 PM',
             '07-APR-20 12.06.01.340044000 AM',
             'internal', 7, 1, 0, 0, 0, None,
-            0, None, id_
+            0, None
         )
         return values
 
@@ -358,13 +356,12 @@ class EngineJob:
         SKIP_FAST_LANE,PARALLEL_SCAN_TYPE,PARALLEL_SCAN_SLICE,MODEL_JOB_ID,DYN_SUM_STATS,
         INSERT_TS,MODIFIED_TS,MODIFIED_BY,RECORD_VER,SCANNER_NAME,REMOTE_JOB_ID,
         RESULT_FILES_DELETED,XPA_ENABLED,S3_ONLY,S3_BUCKET_ID)
-        VALUES {} returning ENGINE_JOB_ID into :{1}""".format(
-                params_as_list(self._column_count), self._column_count+1)
+        VALUES {}""".format(params_as_list(self._column_count))
         return sql
 
-    def values_to_insert(self, id_):
+    def values_to_insert(self):
         values = (
-            'SEQ_ENGINE_JOB', 2, None, 0, 'completed',
+            self.id, 2, None, 0, 'completed',
             2, None, self.app_ver_id, 331559,
             self.analysis_unit_id,
             'http://rome.cloudloop.veracodelabs.com/',
@@ -381,7 +378,7 @@ class EngineJob:
             '06-APR-20 10.26.59.000000000 PM',
             '06-APR-20 11.06.18.755436000 PM',
             'internal', 6, None, self.remote_job_id,
-            0, 0, 0, -1, id_
+            0, 0, 0, -1
         )
         return values
 
@@ -433,7 +430,7 @@ class AnalysisUnitDynOp:
 
     def values_to_insert(self):
         values = (
-            'SEQ_ANALYSIS_UNIT_DYN_OP', self.analysis_unit_id,
+            self.id, self.analysis_unit_id,
             331560, self.engine_job_id,
             0, 1, 36692, '20.3.3', None,
             None, 'Completed', 0, 0,
@@ -498,7 +495,7 @@ class AnalysisUnitDynParams:
 
     def values_to_insert(self):
         values = (
-            'SEQ_ANALYSIS_UNIT_DYN_PARAMS', self.analysis_unit_id,
+            self.id, self.analysis_unit_id,
             'http://rome.cloudloop.veracodelabs.com/plugintest/',
             None, 0, 5000, 100, None, 0, 0,
             0, 0, None, None, None, 0, None,
@@ -552,7 +549,7 @@ class ScanEncrypt:
 
     def values_to_insert(self):
         values = (
-            'SEQ_SCAN_ENCRYPT', self.app_ver_id, None,
+            self.id, self.app_ver_id, None,
             '010201007832ae2082d802f9cb9d420cd6abc3c\
 1badd954470d0f0b95bfd14f49fb29fbd1e01613d\
 b2bfd8e61d3b303e29c41aba693a0000008f30818\
@@ -605,7 +602,7 @@ class AnalysisUnitScanWindow:
 
     def values_to_insert(self):
         values = (
-            'SEQ_ANALYSIS_UNIT_SCAN_WINDOW',
+            self.id,
             self.analysis_unit_id,
             '13-APR-20 06.33.09.404000000 PM',
             '19-APR-20 06.33.00.000000000 PM',
